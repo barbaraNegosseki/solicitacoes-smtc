@@ -1,0 +1,115 @@
+<div class="itau-solicitacoes-wrapper">
+  <h2 class="itau-title">Nova Solicitação</h2>
+  <p>Insira aqui os dados cadastrais para uma nova solicitação</p>
+
+  <div class="itau-grid-container">
+    <div>
+      <p class="itau-subtitle">Empresa</p>
+      <input id="itau-empresa" class="itau-input">
+    </div>
+    <div>
+      <p class="itau-subtitle">CNPJ</p>
+      <input id="itau-cnpj" class="itau-input" mask="00.000.000/0000-00" >
+    </div>
+    <div>
+      <p class="itau-subtitle">Plano</p>
+      <input id="itau-plano" class="itau-input">
+    </div>
+  </div>
+
+  <div class="itau-grid-container itau-grid-2">
+    <div>
+      <p class="itau-subtitle">Tarifa</p>
+      <input id="itau-tarifa" class="itau-input">
+    </div>
+    <div>
+      <p class="itau-subtitle">Minutos</p>
+      <input id="itau-minutos" class="itau-input">
+    </div>
+    <div>
+      <p class="itau-subtitle">Valor do Plano</p>
+      <input id="itau-valor-plano" class="itau-input">
+    </div>
+    <div>
+      <p class="itau-subtitle">Data Adesão</p>
+      <input id="itau-data" class="itau-input" mask="00/00/0000">
+    </div>
+    <div>
+      <button (click)="addRequest()" class="itau-button">Adicionar Solicitação</button>
+      <p id="itau-fields" class="itau-fields">*Favor preencher os campos vazios</p>
+    </div>
+  </div>
+
+  <h2 class="itau-title itau-title-2">Minhas Solicitações</h2>
+  <p>Aqui você pode acompanhar o andamento das suas solicitações</p>
+
+  <div class="itau-grid-container itau-grid-3">
+    <div>
+      <input class="itau-input itau-input-readonly" placeholder="ID" readonly>
+    </div>
+    <div>
+      <input class="itau-input itau-input-readonly" placeholder="Empresa" readonly >
+    </div>
+    <div>
+      <input class="itau-input itau-input-readonly" placeholder="Plano" readonly>
+    </div>
+    <div>
+      <input class="itau-input itau-input-readonly" placeholder="Tarifa" readonly>
+    </div>
+    <div>
+      <input class="itau-input itau-input-readonly" placeholder="Minutos" readonly>
+    </div>
+    <div>
+      <input class="itau-input itau-input-readonly" placeholder="Valor Plano" readonly>
+    </div>
+    <div>
+      <input class="itau-input itau-input-readonly" placeholder="Data Adesão" readonly>
+    </div>
+    <div>
+      <input class="itau-input itau-input-readonly" placeholder="Data Envio" readonly>
+    </div>
+    <div>
+      <input class="itau-input itau-input-readonly" placeholder="Ação" readonly>
+    </div>
+  </div>
+
+  <div *ngFor="let pedido of pedidos" class="itau-grid-container itau-grid-3">
+    <div>
+      <p class="itau-table-content id" id="itau-id">{{ pedido.id }}</p>
+      <input class="itau-input itau-input-separator" readonly>
+    </div>
+    <div>
+      <p class="itau-table-content empresa" id="itau-empresa">{{ pedido.empresa }}</p>
+      <input class="itau-input itau-input-separator" readonly>
+    </div>
+    <div>
+      <p class="itau-table-content plano" id="itau-plano">{{ pedido.plano }}</p>
+      <input class="itau-input itau-input-separator" readonly>
+    </div>
+    <div>
+      <p class="itau-table-content tarifa" id="itau-tarifa">{{ pedido.tarifa }}</p>
+      <input class="itau-input itau-input-separator" readonly>
+    </div>
+    <div>
+      <p class="itau-table-content minutos" id="itau-minutos">{{ pedido.minutos }}</p>
+      <input class="itau-input itau-input-separator" readonly>
+    </div>
+    <div>
+      <p class="itau-table-content valor-plano" id="itau-valor-plano">{{ pedido.vplano }}</p>
+      <input class="itau-input itau-input-separator" readonly>
+    </div>
+    <div>
+      <p class="itau-table-content data-adesao" id="itau-data">{{ pedido.dateAdesao | date: 'dd/MM/yyyy' }}</p>
+      <input class="itau-input itau-input-separator" readonly>
+    </div>
+    <div>
+      <p class="itau-table-content data-envio" id="itau-data-envio">{{ pedido.dateEmissao | date: 'dd/MM/yyyy' }}</p>
+      <input class="itau-input itau-input-separator" readonly>
+    </div>
+    <div>
+      <p id="itau-acao"></p>
+      <input class="itau-input itau-input-separator" readonly>
+    </div>
+  </div>
+
+</div>
